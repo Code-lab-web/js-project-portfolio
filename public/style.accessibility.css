@@ -1,0 +1,640 @@
+* Base styles with accessibility considerations */
+:root {
+  --primary-color: #2c3e50;
+  --background-color: #ffffff;
+  --accent-color: #0040a3; /* Darker blue for better contrast */
+  --error-color: #e74c3c;
+  --success-color: #27ae60;
+  --focus-outline: 3px solid var(--accent-color);
+  --focus-ring-color: rgba(0, 86, 179, 0.5);
+  --progress-bg: #edf2f7;
+  --modal-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Apply box-sizing border-box to all elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Modal Dialog */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+/* Ensure hidden attribute works properly */
+.modal[hidden] {
+  display: none;
+}
+
+.modal-content {
+  background-color: var(--background-color);
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--modal-shadow);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  animation: modalAppear 0.3s ease-out;
+}
+
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Checkbox styling */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.checkbox-container input[type='checkbox'] {
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+select {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+}
+
+.checkbox-container label {
+  margin-bottom: 0;
+}
+.modal-body {
+  margin: 1.5rem 0;
+}
+
+.intro-section {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  gap: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 1.5rem;
+}
+
+#modal-title {
+  color: var(--primary-color);
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.modal button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#save-settings {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+}
+
+#save-settings:hover {
+  background-color: #004494;
+}
+
+#close-modal {
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+#close-modal:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Base styles for readability */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial,
+    sans-serif;
+  line-height: 1.6;
+  color: var(--primary-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 20px;
+  font-size: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Skip link with enhanced visibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--accent-color);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
+/* Enhanced focus styles */
+:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Progress bar styles */
+.quiz-progress {
+  margin: 2rem 0;
+}
+/* Images */
+.decorative-image,
+.info-image {
+  max-width: 15rem;
+  height: auto;
+  margin: 1rem 0;
+  border-radius: 4px;
+}
+
+.progress-bar {
+  background-color: var(--progress-bg);
+  border-radius: 8px;
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  background-color: var(--accent-color);
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 8px;
+}
+
+.progress-text {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Question groups */
+.question-group {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: #f8fafc;
+}
+
+.question-heading {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Form elements */
+fieldset {
+  border: 1px solid var(--primary-color);
+  margin: 1em 0;
+  padding: 1em;
+  border-radius: 4px;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0.5em 1em;
+  color: var(--primary-color);
+  background-color: #f8fafc;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+}
+
+.radio-group {
+  margin: 1em 0;
+}
+
+/* Enhanced radio button styling */
+.radio-option {
+  position: relative;
+  padding: 0.75em;
+  margin: 0.5em 0;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.radio-option:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* Custom radio button styling */
+input[type='radio'] {
+  margin-right: 0.75em;
+  width: 20px;
+  height: 20px;
+}
+
+input[type='radio']:focus-visible + label {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+input[type='radio'] + label {
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  flex: 1;
+}
+
+/* Instructions section */
+.quiz-instructions {
+  background-color: #f8f9fa;
+  padding: 1em;
+  margin: 1em 0;
+  border-left: 4px solid var(--accent-color);
+  border-radius: 0 4px 4px 0;
+}
+
+/* Submit button */
+.form-controls {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.submit-button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s, transform 0.1s;
+  font-weight: 500;
+}
+
+.submit-button:hover {
+  background-color: #2980b9;
+}
+
+.submit-button:active {
+  transform: scale(0.98);
+}
+
+.submit-button:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
+/* Results section */
+#results {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  border: 1px solid var(--primary-color);
+}
+
+.feedback-details {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+/* Utility classes */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+  :root {
+    --primary-color: #000000;
+    --accent-color: #0000ee;
+    --focus-outline: 3px solid #000000;
+  }
+
+  header {
+    background: #ffffff;
+    border: 2px solid var(--primary-color);
+  }
+
+  nav a {
+    background-color: transparent;
+    border: 1px solid currentColor;
+  }
+
+  nav a:hover {
+    background-color: var(--primary-color);
+  }
+
+  .radio-option:hover {
+    background-color: #000000;
+    color: #ffffff;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Basic responsive design */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  fieldset {
+    padding: 0.5em;
+  }
+
+  header {
+    padding: 1.25rem;
+  }
+
+  nav ul {
+    gap: 0.75rem;
+  }
+}
+
+/* User Info Form */
+#user-info {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.form-control {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.form-control label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.form-control input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.form-control input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px var(--focus-ring-color);
+}
+
+.form-control input[aria-invalid='true'] {
+  border-color: var(--error-color);
+}
+
+.form-control input[aria-invalid='true']:focus {
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.25);
+}
+
+.error {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.hint {
+  color: var(--secondary-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Introduction section and images */
+#introduction {
+  padding: 2rem;
+  margin-bottom: 2rem;
+  background-color: #f8fafc;
+  border-radius: 12px;
+}
+
+#introduction h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+#introduction p {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.hero-images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.decorative-image,
+.info-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-image {
+  padding: 1rem;
+  background: white;
+}
+
+@media (min-width: 768px) {
+  .hero-images {
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  .decorative-image,
+  .info-image {
+    width: 45%;
+    max-width: 400px;
+  }
+}
+
+/* Header and Navigation */
+header {
+  margin-bottom: 2rem;
+}
+
+h1,
+h2 {
+  margin-bottom: 1rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* About page specific styles */
+#about {
+  padding: 3rem;
+  background-color: #f8fafc;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+#about h2 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+#about p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #34495e;
+  margin-bottom: 2rem;
+  max-width: 700px;
+}
+
+#about .hero-images {
+  margin: 3rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+#about .hero-images img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+#about .hero-images img:hover {
+  transform: scale(1.02);
+}
+
+/* Header improvements */
+#header {
+  padding: 2rem 0;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #eaeaea;
+}
+
+#header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  gap: 2rem;
+}
+
+#header nav a {
+  color: #0040a3; /* Darker blue for better contrast */
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+#header nav a:hover {
+  background-color: #0040a3;
+  color: white;
+  text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  #about {
+    padding: 1.5rem;
+  }
+
+  #about h2 {
+    font-size: 2rem;
+  }
+
+  #about p {
+    font-size: 1.1rem;
+  }
+
+  #header nav ul {
+    gap: 1rem;
+  }
+}
