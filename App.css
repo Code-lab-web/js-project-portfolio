@@ -1,9 +1,22 @@
-const App = () => {
-  return (
+/* This file should only contain CSS rules. */
+const App =() => {
+  return {
     <>
     <GlobalStyle />
-  )
+  }
 }
+@media (min-width: 900px) {
+  body {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1200px) {
+  body {
+    width: 100%;
+  }
+}
+/* Add your CSS styles here */
 * Base styles with accessibility considerations */
 :root {
   --primary-color: #2c3e50;
@@ -644,3 +657,4 @@ nav a:hover {
     gap: 1rem;
   }
 }
+/* Removed invalid JSX code */
