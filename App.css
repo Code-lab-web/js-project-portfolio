@@ -5,13 +5,13 @@ const App =() => {
     <GlobalStyle />
   }
 }
-@media (min-width: 900px) {
+@media (min-width: 320px) {
   body {
     width: 100%;
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1600px) {
   body {
     width: 100%;
   }
