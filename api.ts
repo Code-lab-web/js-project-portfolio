@@ -1,12 +1,13 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import styled, { ThemeProvider, DefaultTheme, padding } from 'styled-components';
+import styled, { ThemeProvider, DefaultTheme } from 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
     color?: string;
     bg?: string;
   }
+}
 import { createRoot } from 'react-dom/client'
 
 const Button = styled.button`
@@ -26,12 +27,13 @@ document.body.appendChild(container1);
 const root1 = createRoot(container1);
 root1.render(
     <React.StrictMode>
-        <React.Fragment>
+        <>
             <Button>I'm purple.</Button>
             <br />
             <TomatoButton>I'm red.</TomatoButton>
-        </React.Fragment>
+        </>
     </React.StrictMode>
+);
 // import styled from 'styled-components'
 
 const padding = '3em'
@@ -49,28 +51,23 @@ document.body.appendChild(container2);
 
 const root2 = createRoot(container2);
 root2.render(
-  <React.Fragment>
-    <Section $background="royalblue">
-      <span>&#x2728; Magic</span>
-    </Section>
-    <Component
-      <Component
-        as="button"
-        onClick={() => alert('It works!')}
-      >
-        Click Me!
-      </Component>
-      onClick={() => alert('It works!')}
-    >
-      Hello Recruiter!
-    </Component>
-    <Comp draggableColor="red" draggable="true">
-      Drag me!
-    </Comp>
-    <Comp hidden>
-      Drag Me!
-    </Comp>
-  </React.Fragment>
+    <React.Fragment>
+      <Section $background="royalblue">
+        <Component as="button" onClick={() => alert('It works!')}>
+          Click Me!
+        </Component>
+        <Component>
+          Hello Recruiter!
+        </Component>
+        <Comp draggableColor="red" draggable="true">
+          Drag me!
+        </Comp>
+        <Comp hidden>
+          Drag Me!
+        </Comp>
+      </Section>
+    </React.Fragment>
+  );
 // import styled from 'styled-components'
 
 const Input = styled.input.attrs<{ padding?: string | number; small?: boolean }>((props) => ({
@@ -85,13 +82,14 @@ const Input = styled.input.attrs<{ padding?: string | number; small?: boolean }>
     padding: ${(props) => (typeof props.padding === 'number' ? `${props.padding}em` : props.padding)};
 
     ::placeholder {
+    ::placeholder {
       color: #BF4F74;
     }
+  `;
   `;
   
   // Ensure the target element exists in the HTML file
   const rootElement = document.getElementById('root');
-  if (rootElement) {
   ReactDOM.render(
     <React.Fragment>
       <Input padding={1} small={true} placeholder="Small" />
@@ -99,56 +97,58 @@ const Input = styled.input.attrs<{ padding?: string | number; small?: boolean }>
     </React.Fragment>,
     rootElement
   );
-}
+    rootElement
+// Removed extraneous closing brace
 // import styled from "styled-components";
 
 const Component = styled.div`
   color: red;
 `;
-
-root2.render(
-  <Component
-    as="button"
-    onClick={() => alert('It works!')}
+<Component
+  as="button"
+  onClick={() => alert('It works!')}
 >
+  {/* Removed duplicate render call and fixed syntax */}
+</Component>
   {/* Removed duplicate render call and fixed syntax */}
 </Component>
 
 // Removed duplicate and incomplete render logic
 // Removed duplicate render call
-  document.getElementById('root')
+  // Removed redundant line
   // import styled, { ThemeProvider } from 'styled-components'
 
 const Box1 = styled.div`
     color: ${(props) => props.theme?.color || 'black'};
 `;
 
-ReactDOM.render(
-  <ThemeProvider theme={{ color: 'mediumseagreen' } as DefaultTheme}>
-    <Box1>I'm mediumseagreen!</Box1>
-  </ThemeProvider>,
-  <ThemeProvider theme={{ color: 'mediumseagreen' }}>
-    <Box1>I'm mediumseagreen!</Box1>
+const rootElement1 = document.getElementById('root');
+if (rootElement1) {
+  const root1 = createRoot(rootElement1);
+  root1.render(
+    <ThemeProvider theme={{ color: 'mediumseagreen' }}>
+      <Box1>{"I'm mediumseagreen!"}</Box1>
   </ThemeProvider>
 );
 
 // import styled, { ThemeProvider } from 'styled-components'
-  document.getElementById('root')
+  // Removed incomplete and unused statement
 );
 
 const Box2 = styled.div`
   background: ${(props) => props.theme?.bg || 'transparent'};
 `;
 const rootElement = document.getElementById('root');
-if (rootElement) {
-  const root = createRoot(rootElement);
-  root.render(
-    <React.Fragment>
-      <ThemeProvider theme={{ bg: 'white', color: 'mediumseagreen' }}>
-        <Box2>
-          {"I'm mediumseagreen with a white background!"}
-        </Box2>
-      </ThemeProvider>
-    </React.Fragment>
+const rootElement2 = document.getElementById('root');
+if (rootElement2) {
+  const root2 = createRoot(rootElement2);
+  root2.render(
+    <ThemeProvider theme={{ bg: 'white', color: 'mediumseagreen' }}>
+      <Box2>
+        {"I'm mediumseagreen with a white background!"}
+          </Box2>
+        </ThemeProvider>
+      );
+    </ThemeProvider>
   );
 }

@@ -1,9 +1,4 @@
-const App =() => {
-  return(
-    <>
-    <GlobalStyle/></>
-  )
-}
+<GlobalStyle />
 import Card from "./components/card"
 
 import "./App.css"
