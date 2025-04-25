@@ -1,6 +1,7 @@
 <GlobalStyle />
+import React from "react"
 import Card from "./components/card"
-
+import { createGlobalStyle } from "styled-components";
 import "./App.css"
 import card from " ./data/card/json";
 import styled from 'styled-components';
