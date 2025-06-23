@@ -1,10 +1,5 @@
 /* This file should only contain CSS rules. */
-const App =() => {
-  return {
-    <>
-    <GlobalStyle />
-  }
-}
+/* Removed invalid JSX code */
 @media (min-width: 900px) {
   body {
     width: 100%;

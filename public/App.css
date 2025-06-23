@@ -1,9 +1,4 @@
-const App = () => {
-  return (
-    <>
-    <GlobalStyle />
-  )
-}
+/* Removed invalid JavaScript code */
 * Base styles with accessibility considerations */
 :root {
   --primary-color: #2c3e50;
