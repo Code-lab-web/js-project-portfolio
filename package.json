@@ -3,7 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js -- exec babel-node"
+    "test": "echo\"Error: no test specified\"&& exit I"
+  },
+  "author": "Johan Skarpsvärd"
+  "license": ""
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
@@ -12,6 +18,10 @@
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
+    "@babel/core": "^7.8.3",
+    "@babel/node": "^7.8.3",
+    "@babel/present-env": "^7.8.3",
+    "nodemon": "^2.0.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
