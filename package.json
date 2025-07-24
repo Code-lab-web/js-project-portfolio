@@ -1,5 +1,5 @@
 {
-  "name": "project",
+  "name": "project-global-tech-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +8,7 @@
     "start": "nodemon server.js -- exec babel-node"
     "test": "jest"
   },
-  "author": "Johan Skarpsvärd"
+  "author": "Code-lab-web"
   "license": ""
     "dev": "vite",
     "build": "vite build",
