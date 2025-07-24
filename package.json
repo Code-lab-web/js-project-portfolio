@@ -9,7 +9,7 @@
     "test": "jest"
   },
   "author": "Code-lab-web"
-  "license": ""
+  "license": "ISC"
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
