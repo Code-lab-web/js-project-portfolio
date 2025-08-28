@@ -3,6 +3,7 @@
   packages = [
     pkgs.nodejs_20
     pkgs.python312Packages.pip
+    pkgs.busybox
   ];
   idx.extensions = [
     "svelte.svelte-vscode"
