@@ -1,9 +1,7 @@
 {
   "scripts": {
     "test": "jest"
-  }
-}
-{
+  },
   "dependencies": {
     "bcrypt": "^6.0.0",
     "connect-sqlite3": "^0.9.16",
