@@ -65,6 +65,19 @@ const router = createBrowserRouter([
 ]);
 
 /* existing code */
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "contacts/:contactId",
+        element: <Contact />,
+      },
+    ],
+  },
+]);
 /* other imports */
 import Root, { loader as rootLoader } from "./routes/root";
 
@@ -249,3 +262,64 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    loader: rootLoader,
+    action: rootAction,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        errorElement: <ErrorPage />,
+        children: [
+          { index: true, element: <Index /> },
+          {
+            path: "contacts/:contactId",
+            element: <Contact />,
+            loader: contactLoader,
+            action: contactAction,
+          },
+          /* the rest of the routes */
+        ],
+      },
+    ],
+  },
+]);
+import {
+  createRoutesFromElements,
+  createBrowserRouter,
+  Route,
+} from "react-router-dom";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route
+      path="/"
+      element={<Root />}
+      loader={rootLoader}
+      action={rootAction}
+      errorElement={<ErrorPage />}
+    >
+      <Route errorElement={<ErrorPage />}>
+        <Route index element={<Index />} />
+        <Route
+          path="contacts/:contactId"
+          element={<Contact />}
+          loader={contactLoader}
+          action={contactAction}
+        />
+        <Route
+          path="contacts/:contactId/edit"
+          element={<EditContact />}
+          loader={contactLoader}
+          action={editAction}
+        />
+        <Route
+          path="contacts/:contactId/destroy"
+          action={destroyAction}
+        />
+      </Route>
+    </Route>
+  )
+);
