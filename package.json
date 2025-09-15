@@ -12,6 +12,8 @@
     "jsonwebtoken": "^9.0.2",
     "localforage": "^1.10.0",
     "match-sorter": "^8.1.0",
+    "mongoose": "^8.18.1",
+    "moongoose": "^0.0.1",
     "passport": "^0.7.0",
     "passport-facebook": "^3.0.0",
     "react-router-dom": "^7.9.1",
