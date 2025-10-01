@@ -53,9 +53,6 @@
     "@babel/template": "^7.27.2",
     "@babel/types": "^7.28.4",
     "@types/node": "^24.5.2",
-    "babel-preset-env": "^0.0.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.11.0",
     "eslint": "^9.36.0",
     "jest": "^30.1.3"
   }
