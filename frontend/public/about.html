@@ -1,90 +1,68 @@
 <!DOCTYPE html>
-<html lang="en"></html>>
+<html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>About</title>
-<link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-<header id="header">
-<h1> About Us></h1>
-<nav>
-<ul>
-  
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
-</ul>
-</nav>
-</headers>
-<main id="main-content">
-<section id0"about">
-<h2>About Our Website Feedback Initiative.</h2>
-<p>
-We are committed to making our website accessible to everyone. Your feedback helps us improve and create better experience for all users.
-</p>
-<div class="Hero-images">
-<img 
-src"images/icon-6931507.png"
-alt="Accessibility illustration"
-</div>
-<div class="accordion-item">
-<h3>Accessibility Features</h3>
-<div class="accordion">
-<div class ="accordion-item">
-<h4>
-<button class=""accordion-button"
-aria-expandable="false"
-aria-controls="content-1"
->
-Screen Reader Compatibility
-<span class="accordion-icon" aria-hidden="true"></span>
-</button>
-</h4>
-<div id ="content-1" class="accordion-content" hidden>
-<p>Our website fully compatible with screen readers.</p></p>
-</div>
-<div class ="accordion-item">
-<h4>
-<button class=""accordion-button"
-aria-expandable="false"
-aria-controls="content-2"
-  >
-Keyboard navigation
-<span class=accordion-icon" aria-hidden="true"></span>
-</button>
-</h4>
-<div id="content-2" class="accordion-content" hidden>
-<p>All interactive elements are accessible by keyboard navigation</p>
-
-</div></button>
-
-Screen Reader Compatibility
-<span class="accordion-icon" aria-hidden="true"></span>
-</button>
-</h4>
-<div id ="content-1" class=""accordion-content" hidden>
-<p>Our website is fully compatible with screen readers.</p>
-</div>
-
-</div>"
-</div>
-
-</section>
-</div>
-</ul>
-</nav>
-
-</div>
-</div> 
-</body>
-<script src="index.html"></script>
-<script src="js/jsaccordion.js"></script>
-<script src="js/main.js"></script>
-<script src="js/keyboardnavigation.js"></script>
-<script src="js/server.js"></script>
-<script src="style.accessibility.css
-<image  src="icon-6931507.svg"></image>
-<image  src="#peace.jpg"></image>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header role="banner">
+        <h1>About Us</h1>
+        <nav role="navigation" aria-label="Main menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main-content">
+        <section id="about">
+            <h2>About Our Website Feedback Initiative</h2>
+            <p>
+                We are committed to making our website accessible to everyone. Your feedback helps us improve and create a better experience for all users.
+            </p>
+            <div class="hero-images">
+                <img src="images/icon-6931507.png" alt="An illustration representing digital accessibility, showing a person in a wheelchair interacting with a computer." />
+            </div>
+            <div class="accordion">
+                <h3>Accessibility Features</h3>
+                <div class="accordion-item">
+                    <h4>
+                        <button class="accordion-button" aria-expanded="false" aria-controls="content-1">
+                            Screen Reader Compatibility
+                            <span class="accordion-icon" aria-hidden="true"></span>
+                        </button>
+                    </h4>
+                    <div id="content-1" class="accordion-content" hidden>
+                        <p>Our website is fully compatible with screen readers.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h4>
+                        <button class="accordion-button" aria-expanded="false" aria-controls="content-2">
+                            Keyboard Navigation
+                            <span class="accordion-icon" aria-hidden="true"></span>
+                        </button>
+                    </h4>
+                    <div id="content-2" class="accordion-content" hidden>
+                        <p>All interactive elements are accessible via keyboard navigation. You can use the Tab key to move between links and Shift + Tab to move back.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <nav role="navigation" aria-label="Footer menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+    <script src="js/accordion.js"></script>
 </body>
 </html>
