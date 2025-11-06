@@ -4,6 +4,7 @@
     pkgs.nodejs_20
     pkgs.python312Packages.pip
     pkgs.busybox
+    pkgs.nox
   ];
   idx.extensions = [
     "svelte.svelte-vscode"
