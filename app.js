@@ -18,7 +18,7 @@ var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 
 var app = express();
-
+app.set('trust proxy', 1);
 app.locals.pluralize = require('pluralize');
 
 // view engine setup
@@ -38,7 +38,11 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false,
-  store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' })
+  store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' }),
+  cookie: {
+    secure: app.get('env') === 'production',
+    httpOnly: true
+  }
 }));
 app.use('/', indexRouter);
 app.use('/', authRouter);
@@ -46,7 +50,11 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false,
-  store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' })
+  store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' }),
+  cookie: {
+    secure: app.get('env') === 'production',
+    httpOnly: true
+  }
 }));
 app.use(passport.authenticate('session'));
 // catch 404 and forward to error handler
