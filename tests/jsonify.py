@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import re
+from json.decoder import JSONDecodeError
 
 app= Flask(__name__)
 def validate_password(password):
@@ -22,7 +23,10 @@ def validate_password(password):
 
 @app.route('/signup', methods=['POST'])
 def sinup():
-    data = request.get_json()
+    try:
+        data = request.get_json()
+    except JSONDecodeError:
+        return jsonify({"error": "Invalid JSON"}), 400
     
     username = data.get('username')
     password = data.get('password')
@@ -38,4 +42,3 @@ def sinup():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
